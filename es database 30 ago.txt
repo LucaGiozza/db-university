@@ -1,0 +1,72 @@
+
+
+Luca Giozza
+
+
+
+ESERCIZI GROUP BY
+
+1)
+
+SELECT COUNT(*) AS `numero_iscritti`, YEAR(`enrolment_date`) AS `anno_iscrizione`
+FROM `students`
+GROUP BY `anno_iscrizione`
+
+2)
+
+SELECT COUNT(*) AS `numero_insegnanti`, `office_address` 
+FROM `teachers`
+GROUP BY `office_address`
+
+3)
+
+SELECT AVG(vote) AS `media_voti`, `exam_id`
+FROM `exam_student`
+GROUP BY `exam_id`
+
+4)
+
+SELECT COUNT(*) AS `numero_corsi`,`department_id` 
+FROM `degrees`
+GROUP BY `department_id`
+
+
+
+
+ESErcizi con JOIN
+
+1)
+
+SELECT `students`.`name`, `students`.`surname`, `degrees`.`name` AS `corso` 
+FROM `students`
+JOIN `degrees` ON `students`. `degree_id` = `degrees` . `id`
+WHERE `degrees`. `name` = 'Corso di Laurea in Economia'
+
+
+2)
+
+SELECT `degrees`.`name`, `degrees`.`level`, `departments`.`name`, `departments`.`address`
+FROM `degrees`
+JOIN `departments` ON `degrees`.`department_id` = `departments`.`id`
+WHERE `departments`.`name` = 'Dipartimento di Neuroscienze'
+
+
+3)
+
+SELECT `teachers`. `name`, `teachers` . `surname`, `courses`.`name` AS `nome_corso`,`courses`.`description`, `courses` .`cfu`, `courses`. `year`
+FROM `courses`
+JOIN `course_teacher` ON `courses`.`id` = `course_teacher`.`course_id`
+JOIN `teachers` ON `course_teacher`.`teacher_id` = `teachers`. `id`
+WHERE `teachers`.`id` = 44
+
+
+
+
+
+
+
+
+
+
+
+
