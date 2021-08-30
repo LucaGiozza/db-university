@@ -10,7 +10,7 @@ WHERE `cfu` > 10
 3
 SELECT *
 FROM `students`
-WHERE YEAR(`date_of_birth`) < 1991
+WHERE DATEDIFF ( NOW(),`date_of_birth` ) / 365.25 > 30
 4
 SELECT *
 FROM `courses`
